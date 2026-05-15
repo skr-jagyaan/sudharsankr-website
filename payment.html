@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Manufacturing Strategy Series — Sudharsan K R</title>
+<meta name="description" content="The Manufacturing Strategy Series by Sudharsan K R — four books designed to help Indian manufacturing founders build a winning strategy." />
+<meta property="og:title" content="The Manufacturing Strategy Series — Sudharsan K R" />
+<meta property="og:description" content="The Manufacturing Strategy Series by Sudharsan K R — four books designed to help Indian manufacturing founders build a winning strategy." />
+<meta property="og:url" content="https://sudharsankr.co.in/payment.html" />
+<meta name="robots" content="index, follow" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  :root {
+    --black: #000000;
+    --dark: #0d0d0d;
+    --dark2: #161616;
+    --gold: #f5c518;
+    --gold-light: #ffd740;
+    --gold-dim: rgba(245,197,24,0.12);
+    --white: #ffffff;
+    --grey: #888888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
+  .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero { padding: 14rem 80px 6rem; max-width: 1160px; margin: 0 auto; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+  .hero-eyebrow span { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .hero h1 { font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.5rem; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.55); max-width: 560px; line-height: 1.75; }
+
+  /* BOOKS */
+  .books-section { padding: 5rem 80px; background: #f5f5f5; }
+  .books-section-inner { max-width: 1160px; margin: 0 auto; }
+  .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 3rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: #111; }
+  .books-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid rgba(0,0,0,0.1); }
+  .book-card { background: #ffffff; padding: 2.5rem; border-right: 1px solid rgba(0,0,0,0.08); position: relative; transition: background 0.3s; }
+  .book-card:last-child { border-right: none; }
+  .book-card:hover { background: #f0f0f0; }
+  .book-num-bg { font-size: 4rem; font-weight: 800; color: #000000; line-height: 1; margin-bottom: 1rem; }
+  .book-tag { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-bottom: 0.75rem; display: block; }
+  .book-card h3 { font-size: 1rem; font-weight: 700; line-height: 1.35; margin-bottom: 0.75rem; color: #000; }
+  .book-card p { font-size: 0.85rem; color: rgba(0,0,0,0.5); line-height: 1.65; }
+
+  /* OFFER */
+  .offer-section { background: var(--black); padding: 6rem 80px; }
+  .offer-section-inner { max-width: 1160px; margin: 0 auto; }
+  .offer-box { border: 1px solid rgba(245,197,24,0.3); background: var(--dark); padding: 4rem; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+  .offer-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .offer-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .offer-box h2 { font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; }
+  .offer-includes { display: flex; flex-direction: column; gap: 0.6rem; }
+  .offer-includes span { font-size: 0.9rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.75rem; }
+  .offer-includes span::before { content: ''; display: inline-block; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+  .offer-right { text-align: center; min-width: 240px; }
+  .price-tag { font-size: 5rem; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 0.25rem; }
+  .price-note { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 2rem; }
+  .btn-primary { display: inline-block; background: var(--gold); color: var(--black); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1.1rem 2.4rem; border-radius: 2px; border: none; cursor: pointer; width: 100%; transition: background 0.2s, transform 0.15s; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .secure-note { font-size: 0.72rem; color: rgba(255,255,255,0.25); margin-top: 0.75rem; font-family: 'Space Mono', monospace; letter-spacing: 0.05em; }
+
+  /* ABOUT STRIP */
+  .about-strip { background: #f5f5f5; border-top: 1px solid rgba(0,0,0,0.08); padding: 5rem 80px; }
+  .about-strip-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-strip h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; color: #000; }
+  .about-strip p { font-size: 0.95rem; color: rgba(0,0,0,0.55); line-height: 1.8; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid rgba(0,0,0,0.1); }
+  .stat-cell { padding: 2rem; background: #ffffff; border-right: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .stat-cell:nth-child(even) { border-right: none; }
+  .stat-val { font-size: 2.5rem; font-weight: 800; color: #000; line-height: 1; margin-bottom: 0.5rem; }
+  .stat-lbl { font-size: 0.8rem; color: rgba(0,0,0,0.45); line-height: 1.5; }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 80px; display: flex; align-items: center; justify-content: space-between; }
+  footer .brand { font-weight: 700; color: var(--gold); font-size: 0.9rem; letter-spacing: 0.04em; }
+  footer .copy { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--dark); border: 1px solid rgba(245,197,24,0.25); padding: 3rem; max-width: 440px; width: 90%; }
+  .modal-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .modal h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .modal p { font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-bottom: 2rem; line-height: 1.7; }
+  .modal input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--white); padding: 0.9rem 1rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; margin-bottom: 0.75rem; outline: none; border-radius: 2px; transition: border-color 0.2s; }
+  .modal input:focus { border-color: var(--gold); }
+  .modal input::placeholder { color: rgba(255,255,255,0.25); }
+  .modal-error { color: #ff6b6b; font-size: 0.82rem; margin-bottom: 0.75rem; display: none; font-family: 'Space Mono', monospace; }
+
+  @media (max-width: 900px) {
+    nav, footer { padding-left: 2rem; padding-right: 2rem; }
+    .hero { padding-left: 2rem; padding-right: 2rem; }
+    .books-section, .offer-section { padding-left: 2rem; padding-right: 2rem; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); }
+    .offer-box { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem; }
+    .offer-right { text-align: left; }
+    .about-strip { padding: 4rem 2rem; }
+    .about-strip-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+  @media (max-width: 600px) { .books-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://sudharsankr.co.in" class="nav-logo">Sudharsan K R</a>
+  <a href="https://sudharsankr.co.in" class="nav-back">← Back to site</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span>The Manufacturing Strategy Series</span>
+  </div>
+  <h1>Four Books.<br>One Complete System.<br><em>₹100 Crore Clarity.</em></h1>
+  <p>The only strategy framework built specifically for Indian manufacturing MSMEs scaling from ₹10 Cr to ₹100 Cr.</p>
+</section>
+
+<section class="books-section">
+  <div class="books-section-inner">
+  <div class="section-eyebrow">What's Inside</div>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-num-bg">01</div>
+      <span class="book-tag">Brand & Visibility</span>
+      <h3>Why Great Manufacturers Stay Invisible</h3>
+      <p>Why quality alone never builds a brand — and what manufacturers must do to get noticed, valued, and paid.</p>
+    </div>
+    <div class="book-card">
+      <div class="book-num-bg">02</div>
+      <span class="book-tag">Strategy Design</span>
+      <h3>Stop Planning, Start Winning</h3>
+      <p>The strategy design framework for manufacturers tired of annual plans that never move the needle.</p>
+    </div>
+    <div class="book-card">
+      <div class="book-num-bg">03</div>
+      <span class="book-tag">Capital & Risk</span>
+      <h3>Don't Bet the Business</h3>
+      <p>How to test your biggest assumptions before committing capital — scale without betting everything on one move.</p>
+    </div>
+    <div class="book-card">
+      <div class="book-num-bg">04</div>
+      <span class="book-tag">Scale Archetypes</span>
+      <h3>Decoding the Rs. 100 Cr Breakthrough</h3>
+      <p>Real archetypes of Indian manufacturers who crossed ₹100 Cr — and the exact strategic moves that got them there.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="offer-section">
+  <div class="offer-section-inner">
+  <div class="offer-box">
+    <div>
+      <div class="offer-label">Complete Bundle</div>
+      <h2>The Manufacturing<br>Strategy Series</h2>
+      <div class="offer-includes">
+        <span>All 4 books — instant digital access</span>
+        <span>Read online from any device, anytime</span>
+        <span>Login credentials delivered by email</span>
+        <span>Lifetime access — yours to keep</span>
+      </div>
+    </div>
+    <div class="offer-right">
+      <div class="price-tag">₹999</div>
+      <div class="price-note">One-time · Lifetime access</div>
+      <button class="btn-primary" onclick="openModal()">Get the Series →</button>
+      <div class="secure-note">🔒 Razorpay · UPI · Cards · Netbanking</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="about-strip">
+  <div class="about-strip-inner">
+    <div>
+      <h3>Sudharsan K R</h3>
+      <p style="margin-top:1rem;">Business Model & Strategy Advisor to Indian manufacturing MSMEs. Author of The Manufacturing Strategy Series. Works with founders scaling from ₹10 Cr to ₹100 Cr who are done with generic advice and need a framework that fits the Indian manufacturing reality.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-cell"><div class="stat-val">4</div><div class="stat-lbl">Books in the series</div></div>
+      <div class="stat-cell"><div class="stat-val">₹100Cr</div><div class="stat-lbl">The breakthrough milestone</div></div>
+      <div class="stat-cell"><div class="stat-val">₹999</div><div class="stat-lbl">Complete bundle</div></div>
+      <div class="stat-cell"><div class="stat-val">∞</div><div class="stat-lbl">Lifetime access</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">Sudharsan K R</div>
+  <div class="copy">© 2026 · sudharsankr.co.in · info@sudharsankr.co.in</div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-eyebrow">One step to access</div>
+    <h3>Enter your details</h3>
+    <p>Your login credentials will be sent to this email immediately after payment.</p>
+    <input type="text" id="buyerName" placeholder="Your full name" />
+    <input type="email" id="buyerEmail" placeholder="Your email address" />
+    <input type="tel" id="buyerPhone" placeholder="Your mobile number (e.g. 9876543210)" />
+    <div class="modal-error" id="modalError">Please enter a valid name, email and mobile number.</div>
+    <button class="btn-primary" onclick="startPayment()">Continue to Payment →</button>
+  </div>
+</div>
+
+<script>
+  const RAZORPAY_KEY_ID = 'rzp_live_Slb6hOcK6ie5f5';
+  const BACKEND_URL = 'https://manufacturing-shelf-65462349033.asia-south1.run.app';
+
+  function openModal() { document.getElementById('modalOverlay').classList.add('active'); }
+  document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+
+  async function startPayment() {
+    const name = document.getElementById('buyerName').value.trim();
+    const email = document.getElementById('buyerEmail').value.trim();
+    const phone = document.getElementById('buyerPhone').value.trim().replace(/\D/g, '');
+    const errorEl = document.getElementById('modalError');
+    if (!name || !email || !email.includes('@') || phone.length < 10) { errorEl.style.display = 'block'; return; }
+    errorEl.style.display = 'none';
+    try {
+      // Step 1: Create Razorpay order on backend
+      const orderRes = await fetch(`${BACKEND_URL}/create-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const orderData = await orderRes.json();
+      if (!orderData.order_id) { alert('Could not initiate payment. Please try again.'); return; }
+      // Step 2: Open Razorpay checkout with order_id
+      const rzp = new Razorpay({
+        key: orderData.key_id,
+        amount: 99900,
+        currency: 'INR',
+        order_id: orderData.order_id,
+        name: 'The Manufacturing Strategy Series',
+        description: 'Complete 4-Book Bundle',
+        prefill: { name, email },
+        theme: { color: '#f5c518' },
+        handler: function(r) { verifyAndDeliver(r, name, email, phone); }
+      });
+      rzp.open();
+    } catch(err) {
+      alert('Could not initiate payment. Please try again.');
+    }
+  }
+
+  async function verifyAndDeliver(r, name, email, phone) {
+    try {
+      // Step 3: Send all 3 Razorpay fields to backend for HMAC verification
+      const res = await fetch(`${BACKEND_URL}/payment-success`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          payment_id:         r.razorpay_payment_id,
+          order_id:           r.razorpay_order_id,
+          razorpay_signature: r.razorpay_signature,
+          name,
+          email,
+          phone
+        })
+      });
+      if (res.ok) {
+        document.getElementById('modalOverlay').innerHTML = `<div class="modal" style="text-align:center;"><div style="font-size:2.5rem;color:var(--gold);margin-bottom:1.5rem;">✦</div><div class="modal-eyebrow" style="justify-content:center;">Payment Successful</div><h3 style="margin-bottom:1rem;">You're in.</h3><p>Login credentials sent to <strong style="color:var(--white);">${email}</strong>.<br>Check your inbox — including spam.</p></div>`;
+        document.getElementById('modalOverlay').classList.add('active');
+      } else {
+        alert('Payment received but delivery failed. Email info@sudharsankr.co.in with payment ID: ' + r.razorpay_payment_id);
+      }
+    } catch(err) {
+      alert('Payment received. Email info@sudharsankr.co.in with payment ID: ' + r.razorpay_payment_id);
+    }
+  }
+</script>
+</body>
+</html>

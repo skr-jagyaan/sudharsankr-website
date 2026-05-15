@@ -534,6 +534,79 @@
     #podcast .section-eyebrow::before { background: var(--gold); }
     #podcast .about-text { color: rgba(245,240,232,0.55); }
 
+    /* ── BLOG SECTION ── */
+    #blog {
+      background: #f5f5f5;
+      padding: 7rem 0;
+    }
+    #blog .section-eyebrow { color: #111; }
+    #blog .section-eyebrow::before { background: #111; }
+    #blog .section-title { color: #000; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid rgba(0,0,0,0.1);
+      margin-top: 3rem;
+    }
+    .blog-card {
+      background: #fff;
+      padding: 2.5rem;
+      border-right: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+    .blog-card:last-child { border-right: none; }
+    .blog-card:hover { background: #efefef; }
+    .blog-card-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+    }
+    .blog-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.4;
+    }
+    .blog-card p {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.5);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .blog-card-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: rgba(0,0,0,0.35);
+      letter-spacing: 0.06em;
+      margin-top: auto;
+    }
+    .blog-cta-row {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .btn-outline-dark {
+      display: inline-block;
+      border: 1.5px solid #000;
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline-dark:hover { background: #000; color: #fff; }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+
     /* ── TESTIMONIAL ── */
     #testimonials {
       background: var(--dark2);
@@ -915,6 +988,7 @@
       <div class="section-eyebrow">The Podcast</div>
       <h2 class="section-title" style="color:var(--white);margin-top:0.5rem;">Strategy, unfiltered.<br/><span style="font-weight:800;">Audio first.</span></h2>
       <p class="about-text" style="max-width:440px;margin-bottom:2rem;">Real observations from real manufacturing businesses. No fluff. No motivation. Just sharp strategic thinking you can apply to your ₹10–50 Cr firm — while driving to the factory.</p>
+      <a href="/podcast.html" style="display:inline-block;border:1.5px solid var(--gold);color:var(--gold);font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 2.2rem;border-radius:2px;text-decoration:none;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#000'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Get Notified at Launch →</a>
     </div>
     <div class="podcast-visual">
       <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(245,197,24,0.2);border-radius:4px;padding:2.5rem;">
@@ -945,6 +1019,37 @@
       </div>
     </div>
   </div></div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="section-eyebrow">Thinking Out Loud</div>
+    <h2 class="section-title">Strategy insights for<br/><span style="font-weight:800;">Indian manufacturers.</span></h2>
+    <div class="blog-grid">
+      <a href="/blog/why-manufacturers-compete-on-price.html" class="blog-card">
+        <div class="blog-card-tag">Strategy</div>
+        <h3>Why Most Manufacturers Are Stuck Competing on Price</h3>
+        <p>Price pressure isn't a market problem — it's a positioning problem. Here's what's really happening and how to escape it.</p>
+        <div class="blog-card-meta">May 2026 · 5 min read</div>
+      </a>
+      <a href="/blog/founder-bottleneck.html" class="blog-card">
+        <div class="blog-card-tag">Leadership</div>
+        <h3>The Founder Bottleneck: When You Are the Ceiling</h3>
+        <p>Every MSME hits a point where the founder's bandwidth limits the business. Recognising it is the first step to breaking through.</p>
+        <div class="blog-card-meta">May 2026 · 4 min read</div>
+      </a>
+      <a href="/blog/100cr-is-not-a-revenue-target.html" class="blog-card">
+        <div class="blog-card-tag">Scale</div>
+        <h3>₹100 Cr Is Not a Revenue Target. It's a Strategy Problem.</h3>
+        <p>Most founders chase the number. The ones who get there chase the model. Here's the difference that actually matters.</p>
+        <div class="blog-card-meta">May 2026 · 6 min read</div>
+      </a>
+    </div>
+    <div class="blog-cta-row">
+      <a href="/blog.html" class="btn-outline-dark">Read All Articles →</a>
+    </div>
+  </div>
 </section>
 
 <!-- TESTIMONIAL -->

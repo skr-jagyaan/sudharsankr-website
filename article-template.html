@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- REPLACE: Update title, description, and og tags for each article -->
+<title>Article Title Here — Sudharsan K R</title>
+<meta name="description" content="A one-line summary of this article. Keep it under 155 characters." />
+<meta property="og:title" content="Article Title Here — Sudharsan K R" />
+<meta property="og:description" content="A one-line summary of this article." />
+<meta property="og:url" content="https://sudharsankr.co.in/blog/your-article-slug.html" />
+<meta name="robots" content="index, follow" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --dark: #0d0d0d;
+    --gold: #f5c518;
+    --white: #ffffff;
+    --grey: #888888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
+  .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HERO */
+  .article-hero { padding: 14rem 80px 5rem; max-width: 800px; margin: 0 auto; }
+  .article-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .article-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+  /* REPLACE: Change tag text */
+  .article-tag { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .article-hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+  .article-meta { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
+
+  /* CONTENT */
+  .article-body { background: #f5f5f5; padding: 5rem 80px; }
+  .article-body-inner { max-width: 720px; margin: 0 auto; }
+  .article-body-inner p {
+    font-size: 1.05rem; color: rgba(0,0,0,0.75);
+    line-height: 1.85; margin-bottom: 1.75rem;
+  }
+  .article-body-inner h2 {
+    font-size: 1.4rem; font-weight: 800; color: #000;
+    margin: 3rem 0 1.25rem;
+  }
+  .article-body-inner h3 {
+    font-size: 1.1rem; font-weight: 700; color: #000;
+    margin: 2rem 0 1rem;
+  }
+  .article-body-inner blockquote {
+    border-left: 3px solid #000;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: #ebebeb;
+  }
+  .article-body-inner blockquote p {
+    font-size: 1.1rem; font-weight: 600; color: #000;
+    margin-bottom: 0;
+  }
+  .article-body-inner ul, .article-body-inner ol {
+    padding-left: 1.5rem; margin-bottom: 1.75rem;
+  }
+  .article-body-inner li {
+    font-size: 1.05rem; color: rgba(0,0,0,0.75);
+    line-height: 1.85; margin-bottom: 0.5rem;
+  }
+
+  /* CTA STRIP */
+  .article-cta { background: var(--black); padding: 5rem 80px; text-align: center; }
+  .article-cta h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+  .article-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto 2rem; line-height: 1.75; }
+  .btn-gold { display: inline-block; background: var(--gold); color: #000; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 2.2rem; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; }
+  .btn-gold:hover { opacity: 0.85; }
+  .back-link { display: block; margin-top: 2rem; font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 80px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; color: var(--gold); font-size: 0.9rem; letter-spacing: 0.04em; }
+  .copy { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+
+  @media (max-width: 900px) {
+    nav, footer { padding-left: 2rem; padding-right: 2rem; }
+    .article-hero { padding-left: 2rem; padding-right: 2rem; }
+    .article-body { padding-left: 2rem; padding-right: 2rem; }
+    .article-cta { padding-left: 2rem; padding-right: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://sudharsankr.co.in" class="nav-logo">Sudharsan K R</a>
+  <a href="/blog.html" class="nav-back">← All Articles</a>
+</nav>
+
+<!-- REPLACE: Update tag, title, date, and read time -->
+<section class="article-hero">
+  <div class="article-eyebrow">
+    <div class="article-eyebrow-line"></div>
+    <span class="article-tag">Strategy</span>
+  </div>
+  <h1>Your Article Title Goes Here</h1>
+  <div class="article-meta">May 2026 &nbsp;·&nbsp; 5 min read</div>
+</section>
+
+<!-- REPLACE: Write your article content below. Use <h2> for section headers, <p> for paragraphs, <blockquote> for key insights -->
+<section class="article-body">
+  <div class="article-body-inner">
+
+    <p>Start with your opening paragraph here. Hook the reader — give them a reason to keep reading. What's the core tension or insight this article will resolve?</p>
+
+    <h2>Your First Section Heading</h2>
+
+    <p>Write your content here. Each paragraph should make one clear point. Keep sentences short and direct. Your audience is a busy founder — respect their time.</p>
+
+    <blockquote>
+      <p>Use a blockquote to highlight your most important insight. This is the line readers will screenshot and share.</p>
+    </blockquote>
+
+    <h2>Your Second Section Heading</h2>
+
+    <p>Continue building your argument here. Use real examples wherever possible — from Indian manufacturing, from your client work, from the books.</p>
+
+    <h2>What This Means for You</h2>
+
+    <p>End with a clear takeaway. What should the reader do differently after reading this? Make it specific and actionable.</p>
+
+  </div>
+</section>
+
+<section class="article-cta">
+  <h3>Want to go deeper?</h3>
+  <p>The Manufacturing Strategy Series is a 4-book framework built specifically for Indian MSME founders scaling to ₹100 Cr.</p>
+  <a href="/payment.html" class="btn-gold">Get the Series — ₹999 →</a>
+  <a href="https://sudharsankr.co.in" class="back-link">← Back to sudharsankr.co.in</a>
+</section>
+
+<footer>
+  <div class="brand">Sudharsan K R</div>
+  <div class="copy">© 2026 · sudharsankr.co.in · info@sudharsankr.co.in</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- REPLACE: Update for each episode -->
+<title>Ep 01: Episode Title Here — Sudharsan K R Podcast</title>
+<meta name="description" content="One-line summary of this episode. Keep under 155 characters." />
+<meta name="robots" content="index, follow" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --dark: #0d0d0d;
+    --dark2: #161616;
+    --gold: #f5c518;
+    --white: #ffffff;
+    --grey: #888888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
+  .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HERO */
+  .episode-hero { padding: 13rem 80px 5rem; max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .hero-left {}
+  .ep-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .ep-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+  .ep-eyebrow span { font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .ep-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; margin-bottom: 1rem; }
+  .episode-hero h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+  .ep-meta { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; margin-bottom: 2.5rem; }
+
+  /* PLAYER */
+  .player-card { background: var(--dark); border: 1px solid rgba(245,197,24,0.2); border-radius: 4px; padding: 2.5rem; }
+  .player-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.35; }
+  .player-sub { font-size: 0.78rem; color: var(--grey); font-family: 'Space Mono', monospace; margin-bottom: 2rem; }
+
+  /* REPLACE: Swap this iframe src with your actual audio embed URL */
+  .audio-embed { width: 100%; margin-bottom: 1.5rem; border-radius: 4px; overflow: hidden; }
+  .audio-embed audio { width: 100%; outline: none; }
+  .audio-fallback { background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.1); padding: 1.5rem; text-align: center; border-radius: 2px; }
+  .audio-fallback p { font-size: 0.8rem; color: rgba(255,255,255,0.3); font-family: 'Space Mono', monospace; letter-spacing: 0.06em; }
+
+  /* TRANSCRIPT / SHOW NOTES */
+  .shownotes-section { background: #f5f5f5; padding: 6rem 80px; }
+  .shownotes-inner { max-width: 720px; margin: 0 auto; }
+  .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: #111; }
+  .shownotes-inner h2 { font-size: 1.4rem; font-weight: 800; color: #000; margin: 2.5rem 0 1rem; }
+  .shownotes-inner p { font-size: 1rem; color: rgba(0,0,0,0.7); line-height: 1.85; margin-bottom: 1.5rem; }
+  .shownotes-inner ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+  .shownotes-inner li { font-size: 1rem; color: rgba(0,0,0,0.7); line-height: 1.85; margin-bottom: 0.5rem; }
+  .shownotes-inner blockquote { border-left: 3px solid #000; padding: 1rem 1.5rem; background: #ebebeb; margin: 2rem 0; }
+  .shownotes-inner blockquote p { font-size: 1.05rem; font-weight: 600; color: #000; margin-bottom: 0; }
+
+  /* CTA */
+  .ep-cta { background: var(--black); padding: 5rem 80px; text-align: center; }
+  .ep-cta h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+  .ep-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.45); max-width: 460px; margin: 0 auto 2rem; line-height: 1.75; }
+  .btn-gold { display: inline-block; background: var(--gold); color: #000; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 2.2rem; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; margin-right: 1rem; }
+  .btn-gold:hover { opacity: 0.85; }
+  .btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+  .btn-outline:hover { border-color: var(--white); color: var(--white); }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 80px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; color: var(--gold); font-size: 0.9rem; letter-spacing: 0.04em; }
+  .copy { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+
+  @media (max-width: 900px) {
+    nav, footer { padding-left: 2rem; padding-right: 2rem; }
+    .episode-hero { grid-template-columns: 1fr; padding: 11rem 2rem 4rem; gap: 3rem; }
+    .shownotes-section, .ep-cta { padding-left: 2rem; padding-right: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://sudharsankr.co.in" class="nav-logo">Sudharsan K R</a>
+  <a href="/podcast.html" class="nav-back">← All Episodes</a>
+</nav>
+
+<!-- REPLACE: Update episode number, title, date, duration -->
+<div style="background: var(--black);">
+  <div class="episode-hero">
+    <div class="hero-left">
+      <div class="ep-eyebrow">
+        <div class="ep-eyebrow-line"></div>
+        <span>The Podcast</span>
+      </div>
+      <div class="ep-num">Episode 01</div>
+      <h1>Your Episode Title Goes Here</h1>
+      <div class="ep-meta">May 2026 &nbsp;·&nbsp; 18 min</div>
+    </div>
+    <div class="player-card">
+      <div class="player-title">Now Playing</div>
+      <div class="player-sub">Episode 01 · 18 min</div>
+      <!-- REPLACE: Add your audio file URL below -->
+      <div class="audio-embed">
+        <audio controls>
+          <source src="/podcast/episodes/ep-01.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="audio-fallback">
+        <p>Replace the audio src above with your episode file path</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REPLACE: Write your show notes below -->
+<section class="shownotes-section">
+  <div class="shownotes-inner">
+    <div class="section-eyebrow">Show Notes</div>
+
+    <p>Write a 2–3 sentence summary of what this episode covers and who it's for. This is what Google will read — make it specific.</p>
+
+    <h2>What We Cover</h2>
+    <ul>
+      <li>First key point from the episode</li>
+      <li>Second key point</li>
+      <li>Third key point</li>
+    </ul>
+
+    <h2>The Core Insight</h2>
+    <p>Write the main argument or insight from the episode here in 2–3 paragraphs.</p>
+
+    <blockquote>
+      <p>Pull the most quotable line from the episode and put it here.</p>
+    </blockquote>
+
+    <h2>What to Do Next</h2>
+    <p>Give the listener one concrete action they can take after hearing this episode.</p>
+
+  </div>
+</section>
+
+<section class="ep-cta">
+  <h3>Go deeper on strategy.</h3>
+  <p>The Manufacturing Strategy Series — four books for Indian founders scaling to ₹100 Cr.</p>
+  <a href="/payment.html" class="btn-gold">Get the Series — ₹999 →</a>
+  <a href="/podcast.html" class="btn-outline">All Episodes →</a>
+</section>
+
+<footer>
+  <div class="brand">Sudharsan K R</div>
+  <div class="copy">© 2026 · sudharsankr.co.in · info@sudharsankr.co.in</div>
+</footer>
+
+</body>
+</html>

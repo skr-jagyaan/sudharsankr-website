@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Podcast — Sudharsan K R</title>
+<meta name="description" content="Strategy, unfiltered. Real observations from Indian manufacturing businesses — sharp thinking for founders scaling from ₹10 Cr to ₹100 Cr. Coming soon." />
+<meta name="robots" content="index, follow" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --dark: #0d0d0d;
+    --dark2: #161616;
+    --gold: #f5c518;
+    --gold-light: #ffd740;
+    --white: #ffffff;
+    --grey: #888888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
+  .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    padding: 14rem 80px 7rem;
+    max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+  .hero-eyebrow span { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .hero h1 { font-size: clamp(2.8rem, 4.5vw, 4.5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.5rem; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 2.5rem; }
+  .coming-soon-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(245,197,24,0.1); border: 1px solid rgba(245,197,24,0.3);
+    padding: 0.5rem 1rem; border-radius: 2px; margin-bottom: 2rem;
+  }
+  .coming-soon-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .coming-soon-text { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+  /* NOTIFY FORM */
+  .notify-form { display: flex; gap: 0; max-width: 420px; }
+  .notify-input {
+    flex: 1; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15); border-right: none;
+    color: var(--white); padding: 0.9rem 1.2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem;
+    outline: none; border-radius: 2px 0 0 2px;
+    transition: border-color 0.2s;
+  }
+  .notify-input:focus { border-color: var(--gold); }
+  .notify-input::placeholder { color: rgba(255,255,255,0.25); }
+  .notify-btn {
+    background: var(--gold); color: #000;
+    border: none; padding: 0.9rem 1.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; border-radius: 0 2px 2px 0;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .notify-btn:hover { background: var(--gold-light); }
+  .notify-note { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: rgba(255,255,255,0.25); margin-top: 0.75rem; letter-spacing: 0.05em; }
+  .notify-success { display: none; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.08em; margin-top: 0.75rem; }
+
+  /* PODCAST VISUAL */
+  .podcast-visual-card {
+    background: var(--dark); border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 4px; padding: 3rem;
+  }
+  .now-playing-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .episode-preview-title { font-size: 1.2rem; font-weight: 700; line-height: 1.35; margin-bottom: 0.5rem; color: var(--white); }
+  .episode-preview-meta { font-size: 0.8rem; color: var(--grey); margin-bottom: 2rem; font-family: 'Space Mono', monospace; }
+  .play-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .play-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .play-btn svg { margin-left: 3px; }
+  .play-label { font-size: 0.78rem; color: rgba(255,255,255,0.4); font-family: 'Space Mono', monospace; letter-spacing: 0.07em; line-height: 1.5; }
+  .wave { display: flex; align-items: center; gap: 3px; height: 40px; }
+  .wave-bar { width: 3px; border-radius: 2px; background: rgba(245,197,24,0.35); }
+
+  /* WHAT TO EXPECT */
+  .expect-section { background: #f5f5f5; padding: 6rem 80px; }
+  .expect-inner { max-width: 1160px; margin: 0 auto; }
+  .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 3rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: #111; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; color: #000; margin-bottom: 3rem; line-height: 1.15; }
+  .expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid rgba(0,0,0,0.1); }
+  .expect-card { background: #fff; padding: 2.5rem; border-right: 1px solid rgba(0,0,0,0.08); }
+  .expect-card:last-child { border-right: none; }
+  .expect-num { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(0,0,0,0.25); letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .expect-card h3 { font-size: 1rem; font-weight: 700; color: #000; margin-bottom: 0.75rem; line-height: 1.35; }
+  .expect-card p { font-size: 0.85rem; color: rgba(0,0,0,0.5); line-height: 1.65; }
+
+  /* EPISODE PLACEHOLDER */
+  .episodes-section { background: var(--black); padding: 6rem 80px; }
+  .episodes-inner { max-width: 1160px; margin: 0 auto; }
+  .episodes-section .section-eyebrow { color: var(--gold); }
+  .episodes-section .section-eyebrow::before { background: var(--gold); }
+  .episodes-section .section-title { color: var(--white); }
+  .episode-placeholder {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4rem; text-align: center;
+    background: var(--dark);
+  }
+  .ep-icon { font-size: 3rem; margin-bottom: 1.5rem; opacity: 0.4; }
+  .ep-placeholder-text { font-size: 1rem; color: rgba(255,255,255,0.35); line-height: 1.75; max-width: 420px; margin: 0 auto 2rem; }
+  .btn-gold-outline { display: inline-block; border: 1.5px solid var(--gold); color: var(--gold); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; cursor: pointer; background: transparent; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .btn-gold-outline:hover { background: var(--gold); color: #000; }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 80px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; color: var(--gold); font-size: 0.9rem; letter-spacing: 0.04em; }
+  .copy { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+
+  @media (max-width: 900px) {
+    nav, footer { padding-left: 2rem; padding-right: 2rem; }
+    .hero { grid-template-columns: 1fr; padding: 12rem 2rem 5rem; gap: 3rem; }
+    .expect-section, .episodes-section { padding-left: 2rem; padding-right: 2rem; }
+    .expect-grid { grid-template-columns: 1fr; }
+    .expect-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .expect-card:last-child { border-bottom: none; }
+    .notify-form { flex-direction: column; }
+    .notify-input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 2px 2px 0 0; }
+    .notify-btn { border-radius: 0 0 2px 2px; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://sudharsankr.co.in" class="nav-logo">Sudharsan K R</a>
+  <a href="https://sudharsankr.co.in" class="nav-back">← Back to site</a>
+</nav>
+
+<!-- HERO -->
+<div style="background: var(--black);">
+  <div class="hero">
+    <div>
+      <div class="coming-soon-badge">
+        <div class="coming-soon-dot"></div>
+        <span class="coming-soon-text">Coming Soon</span>
+      </div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>The Podcast</span>
+      </div>
+      <h1>Strategy,<br/><em>unfiltered.</em></h1>
+      <p>Real observations from real manufacturing businesses. No fluff. No motivation. Just sharp strategic thinking for Indian founders scaling from ₹10 Cr to ₹100 Cr.</p>
+      <form class="notify-form" onsubmit="handleNotify(event)">
+        <input type="email" class="notify-input" id="notifyEmail" placeholder="Your email address" required />
+        <button type="submit" class="notify-btn">Notify Me →</button>
+      </form>
+      <div class="notify-note">No spam. One email when we launch.</div>
+      <div class="notify-success" id="notifySuccess">✦ You're on the list. We'll let you know when we launch.</div>
+    </div>
+    <div class="podcast-visual-card">
+      <div class="now-playing-label">Episode Preview</div>
+      <div class="episode-preview-title">Why the ₹10 Cr MD is always the bottleneck</div>
+      <div class="episode-preview-meta">Episode 01 · ~18 min · Coming Soon</div>
+      <div class="play-row">
+        <div class="play-btn">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M5 3L14 9L5 15V3Z" fill="#000"/>
+          </svg>
+        </div>
+        <div class="play-label">Available when we launch.<br/>Get notified — enter your email.</div>
+      </div>
+      <div class="wave">
+        <div class="wave-bar" style="height:30%"></div><div class="wave-bar" style="height:55%"></div>
+        <div class="wave-bar" style="height:40%"></div><div class="wave-bar" style="height:80%"></div>
+        <div class="wave-bar" style="height:35%"></div><div class="wave-bar" style="height:65%"></div>
+        <div class="wave-bar" style="height:50%"></div><div class="wave-bar" style="height:90%"></div>
+        <div class="wave-bar" style="height:40%"></div><div class="wave-bar" style="height:60%"></div>
+        <div class="wave-bar" style="height:30%"></div><div class="wave-bar" style="height:75%"></div>
+        <div class="wave-bar" style="height:55%"></div><div class="wave-bar" style="height:85%"></div>
+        <div class="wave-bar" style="height:45%"></div><div class="wave-bar" style="height:55%"></div>
+        <div class="wave-bar" style="height:35%"></div><div class="wave-bar" style="height:70%"></div>
+        <div class="wave-bar" style="height:50%"></div><div class="wave-bar" style="height:80%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <div class="expect-inner">
+    <div class="section-eyebrow">What to Expect</div>
+    <h2 class="section-title">Strategy conversations<br/>built for manufacturers.</h2>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <div class="expect-num">01</div>
+        <h3>Short & Dense</h3>
+        <p>Every episode is under 25 minutes. No padding. No intros that last 5 minutes. You get the insight and move on.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-num">02</div>
+        <h3>Real Business Observations</h3>
+        <p>Drawn from actual manufacturing businesses — pattern recognition from the boardroom, not theory from a classroom.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-num">03</div>
+        <h3>One Idea Per Episode</h3>
+        <p>Each episode tackles one specific strategic problem — pricing, positioning, scale, leadership — and goes deep on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODES PLACEHOLDER -->
+<section class="episodes-section">
+  <div class="episodes-inner">
+    <div class="section-eyebrow">Episodes</div>
+    <h2 class="section-title">First episodes<br/>dropping soon.</h2>
+    <div class="episode-placeholder">
+      <div class="ep-icon">◎</div>
+      <p class="ep-placeholder-text">Episodes will appear here once the podcast launches. Enter your email above to be the first to know.</p>
+      <button class="btn-gold-outline" onclick="document.getElementById('notifyEmail').focus();window.scrollTo({top:0,behavior:'smooth'})">Get Notified →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Sudharsan K R</div>
+  <div class="copy">© 2026 · sudharsankr.co.in · info@sudharsankr.co.in</div>
+</footer>
+
+<script>
+  function handleNotify(e) {
+    e.preventDefault();
+    const email = document.getElementById('notifyEmail').value.trim();
+    if (!email || !email.includes('@')) return;
+    // TODO: Connect to your email capture backend or a service like Mailchimp/ConvertKit
+    // For now, shows success message
+    document.querySelector('.notify-form').style.display = 'none';
+    document.querySelector('.notify-note').style.display = 'none';
+    document.getElementById('notifySuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>

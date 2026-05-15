@@ -607,28 +607,94 @@
     .btn-outline-dark:hover { background: #000; color: #fff; }
     @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
 
-    /* ── TESTIMONIAL ── */
+    /* ── TESTIMONIAL SLIDER ── */
     #testimonials {
       background: var(--dark2);
       padding: 6rem 0;
-      text-align: center;
+      overflow: hidden;
     }
-    .testimonial-quote {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 400; 
-      color: var(--white);
-      max-width: 800px; margin: 2rem auto;
-      line-height: 1.6;
-    }
-    .testimonial-quote::before { content: '\201C'; color: var(--gold); font-size: 3rem; line-height: 0; vertical-align: -0.5em; margin-right: 0.2em; }
-    .testimonial-author {
+    .slider-eyebrow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.75rem; margin-bottom: 3rem;
       font-family: 'Space Mono', monospace;
-      font-size: 0.95rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--grey);
-      margin-top: 1.5rem;
+      font-size: 0.85rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold);
     }
-    .testimonial-author strong { color: var(--gold); }
+    .slider-eyebrow::before, .slider-eyebrow::after {
+      content: ''; display: block;
+      width: 30px; height: 1px; background: var(--gold);
+    }
+    .slider-wrapper {
+      position: relative; max-width: 860px;
+      margin: 0 auto; padding: 0 4rem;
+    }
+    .slider-track {
+      overflow: hidden;
+    }
+    .slider-slides {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .slide {
+      min-width: 100%; text-align: center; padding: 0 1rem;
+    }
+    .slide-quote {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 400; color: var(--white);
+      line-height: 1.75; margin-bottom: 2rem;
+      position: relative;
+    }
+    .slide-quote::before {
+      content: '\201C'; color: var(--gold);
+      font-size: 4rem; line-height: 0;
+      vertical-align: -0.55em; margin-right: 0.15em;
+      font-family: Georgia, serif;
+    }
+    .slide-quote::after {
+      content: '\201D'; color: var(--gold);
+      font-size: 4rem; line-height: 0;
+      vertical-align: -0.55em; margin-left: 0.15em;
+      font-family: Georgia, serif;
+    }
+    .slide-author {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .slide-org {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--grey);
+      margin-top: 0.35rem;
+    }
+    /* Arrows */
+    .slider-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(245,197,24,0.3);
+      background: transparent; color: var(--gold);
+      font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      z-index: 2;
+    }
+    .slider-arrow:hover { background: rgba(245,197,24,0.1); border-color: var(--gold); }
+    .slider-arrow.prev { left: 0; }
+    .slider-arrow.next { right: 0; }
+    /* Dots */
+    .slider-dots {
+      display: flex; justify-content: center; gap: 0.5rem; margin-top: 2.5rem;
+    }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(245,197,24,0.25); border: none;
+      cursor: pointer; padding: 0; transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active { background: var(--gold); transform: scale(1.3); }
+    @media (max-width: 700px) {
+      .slider-wrapper { padding: 0 3rem; }
+      .slider-arrow { width: 36px; height: 36px; font-size: 0.9rem; }
+    }
 
     /* ── CTA SECTION ── */
     #cta {
@@ -1055,15 +1121,103 @@
 
 <!-- TESTIMONIAL -->
 <section id="testimonials">
-  <div class="container" style="text-align:center;">
-    <div class="section-eyebrow" style="justify-content:center;color:var(--gold);">
-      <span style="display:inline-block;width:30px;height:1px;background:var(--gold);margin-right:0.75rem;vertical-align:middle;"></span>
-      What the Indian Government Says
+  <div class="container">
+    <div class="slider-eyebrow">What They Said</div>
+    <div class="slider-wrapper">
+      <button class="slider-arrow prev" onclick="slideMove(-1)" aria-label="Previous">&#8592;</button>
+      <div class="slider-track">
+        <div class="slider-slides" id="sliderSlides">
+
+          <div class="slide">
+            <p class="slide-quote">The business model is innovative and the potential is significant. The integrated design approach — conceived and built for the first time in the country — demonstrates both technical depth and commercial viability. Stands out for its ambition, originality, and execution. Recommended as the top-ranked design.</p>
+            <div class="slide-author">Evaluation Panel comprising Scientists from IISc and Secretaries from the Ministry of MSME</div>
+            <div class="slide-org">Government of India</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">We were completely confident in our Capex plan until Sudharsan's audit exposed a massive regulatory blind spot. His advisory fundamentally changed how we evaluate hidden 'deal-killers' before allocating capital.</p>
+            <div class="slide-author">Chief Safety Officer</div>
+            <div class="slide-org">Indian Railways</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">Sudharsan doesn't just look at the technology; he maps the macro-risk. Sitting with him completely expanded our view on how to structure partnerships and capital for a ₹100 Crore mandate. He brings absolute clarity to complex deals.</p>
+            <div class="slide-author">Institutional Partner</div>
+            <div class="slide-org">Indian Institute of Science (IISc)</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">A 15-minute conversation with Sudharsan completely dismantled our assumption that 'bigger is safer.' He opened our eyes to the massive risk of slow execution, giving us the total confidence to pivot away from legacy behemoths.</p>
+            <div class="slide-author">Dean</div>
+            <div class="slide-org">Premier Horticulture University</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">We were locked in a toxic, transactional vendor cycle. Sudharsan's intervention shifted our entire operational mindset. He showed us how to elevate the relationship from daily firefighting to true strategic alignment.</p>
+            <div class="slide-author">Managing Director</div>
+            <div class="slide-org">Leading Electrical Components Manufacturing Firm</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">We were expecting a standard pitch for capacity. Instead, Sudharsan opened us up to an entirely new deep-tech commercialisation model. His strategic vision completely expanded our horizon for what was possible in the partnership.</p>
+            <div class="slide-author">Managing Director</div>
+            <div class="slide-org">Network Expansion Firm</div>
+          </div>
+
+          <div class="slide">
+            <p class="slide-quote">I was about to make a blind bet in a new sector. Sudharsan's strategic audit stopped me in my tracks and opened my eyes to a much smarter capital play. He gave me the confidence to leverage my existing assets instead of burning cash.</p>
+            <div class="slide-author">Mega-Project Subcontractor</div>
+            <div class="slide-org">NHAI</div>
+          </div>
+
+        </div>
+      </div>
+      <button class="slider-arrow next" onclick="slideMove(1)" aria-label="Next">&#8594;</button>
     </div>
-    <p class="testimonial-quote">The business model is innovative and the potential is significant. The integrated design approach — conceived and built for the first time in the country — demonstrates both technical depth and commercial viability. Stands out for its ambition, originality, and execution. Recommended as the top-ranked design."</p>
-    <div class="testimonial-author"><strong>Evaluation Panel comprising Scientists from the Indian Institute of Science (IISc) and Secretaries from the Ministry of MSME, Government of India</strong></div>
+    <div class="slider-dots" id="sliderDots"></div>
   </div>
 </section>
+
+<script>
+  (function() {
+    var current = 0;
+    var total = 7;
+    var autoTimer;
+    var slides = document.getElementById('sliderSlides');
+    var dotsContainer = document.getElementById('sliderDots');
+
+    // Build dots
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      d.addEventListener('click', (function(idx) {
+        return function() { goTo(idx); resetAuto(); };
+      })(i));
+      dotsContainer.appendChild(d);
+    }
+
+    function goTo(n) {
+      current = (n + total) % total;
+      slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+      document.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    window.slideMove = function(dir) {
+      goTo(current + dir);
+      resetAuto();
+    };
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+    }
+
+    resetAuto();
+  })();
+</script>
 
 <!-- CTA -->
 <section id="cta">
